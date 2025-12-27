@@ -10,6 +10,8 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 
+use function Laravel\Prompts\text;
+
 class StudentsTable
 {
     public static function configure(Table $table): Table
@@ -45,7 +47,7 @@ class StudentsTable
               
                ->searchable()
                ->sortable(),
-               
+               textColumn::make("img_url")
             ])
             ->filters([
                 //

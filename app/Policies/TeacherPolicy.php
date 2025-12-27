@@ -29,7 +29,13 @@ class TeacherPolicy
      */
     public function create(User $user): bool
     {
-       return $user->role >= 1; 
+       $role = $user->roles() ->where('role_name','=','1 - 3')
+                              
+                               ->first();
+        $role1  = $user->role >= 1; 
+        if ($role || $role1) {
+            return true;}
+            return false;
     }
 
     /**

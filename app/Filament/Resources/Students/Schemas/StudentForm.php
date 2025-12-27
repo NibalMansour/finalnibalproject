@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Students\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 
@@ -27,7 +28,10 @@ class StudentForm
                       ->label(app()->getLocale() === 'ar' ? 'رقم الهاتف' : 'Phone ')       ,
                TextInput::make("adress")
                          ->label(app()->getLocale() === 'ar' ? 'العنوان' : 'Adress')   ,
-               
+               FileUpload::make('img_url')
+               ->label('صورة الطالب') 
+               ->image() ->directory('students') 
+               ->required(),
                             
             ]);
             

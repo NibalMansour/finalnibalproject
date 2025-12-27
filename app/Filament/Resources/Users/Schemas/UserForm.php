@@ -30,6 +30,7 @@ class UserForm
           ->required()
           ->unique(ignoreRecord: true),
         TextInput::make('password')
+        ->label(app()->getLocale() === 'ar' ? 'كلمة السر' : 'password')
           ->password()
           ->dehydrateStateUsing(fn($state) => Hash::make($state))
           ->dehydrated(fn($state) => filled($state))
@@ -42,12 +43,15 @@ class UserForm
         //     ->dehydrated(fn ($state) => filled($state)) 
         //     ->label('كلمة المرور'),
 
-        Select::make('role')
-          ->options([
-            0 => 'User  ',
-            1 => 'Admin',
-            2 => 'Super Admin',
-          ])
+        Select::make('roles')
+        ->label(app()->getLocale() === 'ar' ? 'الأدوار ' : 'Roles')
+        ->multiple() 
+        ->relationship('roles', 'role_name') 
+          // ->options([
+          //   0 => 'User  ',
+          //   1 => 'Admin',
+          //   2 => 'Super Admin',
+          // ])
         //     ->required(),   
       ]);
   }

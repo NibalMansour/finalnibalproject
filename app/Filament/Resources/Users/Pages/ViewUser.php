@@ -20,4 +20,7 @@ class ViewUser extends ViewRecord
                ->icon('heroicon-o-arrow-left'),
         ];
     }
+    public function getTitle(): string { 
+    return (app()->getLocale() === 'ar' ? ' عرض مستخدم' : 'view user'); 
+    }
 }

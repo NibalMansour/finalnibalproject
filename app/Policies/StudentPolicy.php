@@ -2,8 +2,10 @@
 
 namespace App\Policies;
 
+use App;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Auth\Access\Response;
 
 class StudentPolicy
@@ -29,7 +31,15 @@ class StudentPolicy
      */
     public function create(User $user): bool
     {
-        return $user->role >= 1; 
+        //return $user->role >= 1; 
+        //return $role->user == " إدارة الطلاب ";
+        $role = $user->roles() ->where('role_name','=','1 - 2')
+                              
+                               ->first();
+         $role1  = $user->role >= 1;
+        if ($role || $role1) {
+            return true;}
+            return false;
     }
 
     /**

@@ -6,18 +6,19 @@ use BackedEnum;
 use App\Models\Student;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
+use PhpParser\Node\Stmt\Label;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Resource;
 use Filament\Actions\DeleteAction;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use App\Filament\Resources\Students\Pages\EditStudent;
 use App\Filament\Resources\Students\Pages\ListStudents;
 use App\Filament\Resources\Students\Pages\CreateStudent;
 use App\Filament\Resources\Students\Schemas\StudentForm;
 use App\Filament\Resources\Students\Tables\StudentsTable;
-use PhpParser\Node\Stmt\Label;
 
 class StudentResource extends Resource
 {
@@ -66,6 +67,7 @@ class StudentResource extends Resource
                ->label("العنوان")
                ->searchable()
                ->sortable(),
+               ImageColumn::make('photo') ->label('صورة الطالب') ->circular(), 
         ])
         ->recordActions([
                   ViewAction::make(),

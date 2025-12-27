@@ -10,7 +10,7 @@ class ListStudents extends ListRecords
 {
     protected static string $resource = StudentResource::class;
 
-    // اسم القائمة الجانبية
+
     public static function getNavigationLabel(): string
     {
         return app()->getLocale() === 'ar' ? 'جميع الطلاب' : 'All Students';

@@ -20,4 +20,7 @@ class EditStudentDegree extends EditRecord
 {
     return $this->getResource()::getUrl('index');
 }
+public function getTitle(): string { 
+    return (app()->getLocale() === 'ar' ? ' تعديل الدرجات' : 'Edit Degree'); 
+    }
 }

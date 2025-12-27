@@ -9,7 +9,16 @@ use Filament\Resources\Pages\ListRecords;
 class ListUsers extends ListRecords
 {
     protected static string $resource = UserResource::class;
-    protected static ?string $title = 'Users';
+    public static function getNavigationLabel(): string
+    {
+        return app()->getLocale() === 'ar' ?'إدارة المستخدمين' :'Users Management';
+    }
+
+    // عنوان الصفحة
+    public function getTitle(): string
+    {
+        return app()->getLocale() === 'ar' ?'إدارة المستخدمين' :'Users Management';
+    }
 
     protected function getHeaderActions(): array
     {

@@ -15,5 +15,8 @@ class CreateTeacher extends CreateRecord
 {
     return $this->getResource()::getUrl('index');
 }
+public function getTitle(): string { 
+    return (app()->getLocale() === 'ar' ? ' اضافة مدرس' : 'create teacher'); 
+    }
 }
 

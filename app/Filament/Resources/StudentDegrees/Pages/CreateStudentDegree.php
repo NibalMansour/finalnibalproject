@@ -13,4 +13,7 @@ class CreateStudentDegree extends CreateRecord
 {
     return $this->getResource()::getUrl('index');
 }
+public function getTitle(): string { 
+    return (app()->getLocale() === 'ar' ? ' اضافة الدرجات' : 'create Degree'); 
+    }
 }

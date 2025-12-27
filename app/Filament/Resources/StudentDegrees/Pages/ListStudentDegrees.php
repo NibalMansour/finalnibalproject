@@ -9,11 +9,15 @@ use Filament\Resources\Pages\ListRecords;
 class ListStudentDegrees extends ListRecords
 {
     protected static string $resource = StudentDegreeResource::class;
-protected static ?string $title = 'Degree';
+//protected static ?string $title = 'Degree';
     protected function getHeaderActions(): array
     {
         return [
             CreateAction::make(),
         ];
+    }
+    public function getTitle(): string
+    {
+        return app()->getLocale() === 'ar' ? 'جميع الدرجات' : 'All Degree';
     }
 }
